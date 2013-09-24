@@ -1,10 +1,10 @@
+.header {
+    margin: .4em;
+}
+
 .header-0 {
     background-color: #519251;
     color: whitesmoke;
-}
-
-.header{
-    margin: .4em;
 }
 
 .header-1 {
@@ -27,7 +27,7 @@
     padding: 1em;
 }
 
-.content{
+.content {
     margin: 0 auto;
     width: 95%;
 }

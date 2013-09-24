@@ -1,11 +1,4 @@
-var rssApp = angular.module('rssApp', ['ngResource']);
-
-rssApp.directive("feed", function () {
-    return {
-        restrict: "E",
-        template: '<div>Hello world</div>'
-    };
-});
+var rssApp = angular.module('rssApp', []);
 
 rssApp.factory('Data', function ($http) {
     $http.defaults.useXDomain = true;
@@ -14,7 +7,7 @@ rssApp.factory('Data', function ($http) {
         return $http.get(url)
             .then(function (result) {
                 var results = new Array();
-                $($.parseXML(result.data)).find(articleTag + ":lt(3)").each(function () { // or "item" or whatever suits your feed
+                $($.parseXML(result.data)).find(articleTag + ":lt(3)").each(function () {
                     var el = $(this);
 
                     results.push({title: el.find('title').text(),
@@ -28,12 +21,16 @@ rssApp.factory('Data', function ($http) {
 
     return {
         getCnn: function () {
-            var cnnUrl = 'http://rss.cnn.com/rss/cnn_topstories.rss';
-            return callUrl(cnnUrl, 'item');
+            var url = 'http://rss.cnn.com/rss/cnn_topstories.rss';
+            return callUrl(url, 'item');
         },
         getVerge: function () {
-            var vergeUrl = 'http://www.theverge.com/rss/frontpage';
-            return callUrl(vergeUrl, 'entry');
+            var url = 'http://www.theverge.com/rss/frontpage';
+            return callUrl(url, 'entry');
+        },
+        getHackerNews: function () {
+            var url = 'https://news.ycombinator.com/rss';
+            return callUrl(url, 'item');
         }
     };
 })
@@ -42,4 +39,5 @@ rssApp.factory('Data', function ($http) {
 function RssCtrl($scope, Data) {
     $scope.cnnFeed = Data.getCnn();
     $scope.vergeFeed = Data.getVerge();
+    $scope.hackerNewsFeed = Data.getHackerNews();
 }
