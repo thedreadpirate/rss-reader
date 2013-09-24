@@ -1,0 +1,24 @@
+<html ng-app="rssApp">
+    <head>
+        <script src="/js/jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+        <script src="/js/angularresource.min.js"></script>
+        <script src="/js/controllers.js" type="text/javascript"/>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+        <link rel="stylesheet" href="feed.css">
+    </head>
+
+    <body ng-controller="RssCtrl">
+        <div>
+            <div class="pure-g-r content">
+                <div class="pure-u-1-4 header-0 l-box header" >
+                    <p ng-repeat="item in cnnFeed">{{ item.title }}</p>
+                </div>
+                <div class="pure-u-1-4 header-1 l-box header" >
+                    <p ng-repeat="item in vergeFeed">{{ item.title }}</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
