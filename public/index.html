@@ -12,15 +12,16 @@
     <body ng-controller="RssCtrl">
         <div>
             <div class="pure-g-r content">
+                <feed class="header-0" site="http://rss.cnn.com/rss/cnn_topstories.rss"></feed>
                 <div class="pure-u-1-4 header-0 l-box header" >
                     <p ng-repeat="item in cnnFeed">{{ item.title }}</p>
                 </div>
-                <div class="pure-u-1-4 header-1 l-box header" >
-                    <p ng-repeat="item in vergeFeed">{{ item.title }}</p>
-                </div>
-                <div class="pure-u-1-4 header-2 l-box header" >
-                    <p ng-repeat="item in hackerNewsFeed">{{ item.title }}</p>
-                </div>
+                <!--<div class="pure-u-1-4 header-1 l-box header" >-->
+                    <!--<p ng-repeat="item in vergeFeed">{{ item.title }}</p>-->
+                <!--</div>-->
+                <!--<div class="pure-u-1-4 header-2 l-box header" >-->
+                    <!--<p ng-repeat="item in hackerNewsFeed">{{ item.title }}</p>-->
+                <!--</div>-->
             </div>
         </div>
     </body>
